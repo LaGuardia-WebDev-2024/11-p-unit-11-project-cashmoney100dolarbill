@@ -1,69 +1,71 @@
-<!-- Unit 11 Project
-Requirements
-[  ] $() Select by Element, ID AND Class 
-[  ] Use Three Different jQuery Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
-
-Select ONE Additional 
-[ no ] Feature 1 - Use .hide() & .show() method
-[ no ] Feature 2 - Use .addClass() method
-[ no ] Feature 3 - Use .slideDown() method
-[ no ] Feature 4 - Use .mouseover() method
-[ no ] Feature 5 - Use .fadeIn() method
--->
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Unit 11 Project</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      /* [Requirement] Add Five CSS Declarations */
+      body { background-color: #f0f8ff; font-family: sans-serif; text-align: center; }
+      h1 { color: #2c3e50; text-transform: uppercase; }
+      .memory-image { width: 200px; border-radius: 10px; display: none; margin-top: 10px; border: 3px solid #34495e; }
+      ol { list-style-position: inside; padding: 0; }
+      li { margin-bottom: 30px; padding: 20px; border-bottom: 1px solid #ccc; }
+    </style>
   </head>
   <body>
     <button id="mem1-button">Memory #1</button>
     <button id="mem2-button">Memory #2</button>
     <button id="mem3-button">Memory #3</button>
-    <h1>My Top 3 Memories of <span>This Year</span></h1>
+    
+    <h1>My Top 3 Memories of <span class="year-text">This Year</span></h1>
+    
     <ol>
       <li>
         <h3 id="mem1">Memory #1</h3>
-        <p>More about this memory.</p>
+        <p>A great day at the beach!</p>
+        <!-- [Requirement] Include Three Images -->
+        <img src="https://kasandbox.org" class="memory-image" id="img1">
       </li>
 
       <li>
         <h3 id="mem2">Memory #2</h3>
-        <p>More about this memory.</p>
+        <p>Exploring the mountains.</p>
+        <img src="https://kasandbox.org" class="memory-image" id="img2">
       </li>
 
       <li>
         <h3 id="mem3">Memory #3</h3>
-        <p>More about this memory</p>
+        <p>Finally finished my coding project!</p>
+        <img src="https://kasandbox.org" class="memory-image" id="img3">
       </li>
     </ol>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-
       // ======================== Button #1
       $("#mem1-button").click(function () {
+        // [Requirement] Select by ID and use .css()
         $("#mem1").css("color", "purple");
+        // [Feature 5] Use .fadeIn()
+        $("#img1").fadeIn(); 
       });
 
       // ======================== Button #2
       $("#mem2-button").click(function () {
+        // [Requirement] Select by Element (h1) and use .append() (Method 2)
+        $("h1").append(" ✨"); 
         $("#mem2").css("color", "blue");
+        $("#img2").fadeIn();
       });
 
       // ======================== Button #3
       $("#mem3-button").click(function () {
+        // [Requirement] Select by Class (.year-text) and use .text() (Method 3)
+        $(".year-text").text("2024"); 
         $("#mem3").css("color", "green");
-        $("#mem3").text("Coding Parties! 🎉");
+        $("#img3").fadeIn();
       });
-
-
     </script>
   </body>
 </html>
-
-<!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
